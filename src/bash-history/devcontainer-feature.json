@@ -1,0 +1,36 @@
+{
+    "name": "bash-history",
+    "id": "bash-history",
+    "version": "1.1.0",
+    "description": "bash history configuration feature",
+    "options": {
+        "BASH_RCFILE": {
+            "type": "string",
+            "description": "The path of the bashrc file",
+            "default": "/root/.bashrc"
+        },
+        "BASH_HISTSIZE": {
+            "type": "string",
+            "description": "The value of HISTSIZE and HISTFILESIZE for bash",
+            "default": "-1"
+        },
+        "BASH_HISTFILE": {
+            "type": "string",
+            "description": "The value of HISTFILE for bash",
+            "default": "/root/.history/bash_history"
+        },
+        "BASH_HISTTIMEFORMAT": {
+            "type": "string",
+            "description": "The value of HISTTIMEFORMAT for bash",
+            "default": "%F, %T "
+        },
+        "BASH_PROMPT_COMMAND": {
+            "type": "string",
+            "description": "The value of PROMPT_COMMAND for bash",
+            "default": "history -a"
+        }
+    },
+    "installsAfter": [
+        "ghcr.io/devcontainers/features/common-utils"
+    ]
+}

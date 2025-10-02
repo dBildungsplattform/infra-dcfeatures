@@ -16,10 +16,17 @@ jobs:
           - ionosctl
           - hostctl
           - onepassword-cli
+          - zsh-history
+          - bash-history
         baseImage:
           - debian:latest
           - ubuntu:latest
           - mcr.microsoft.com/devcontainers/base:ubuntu
+        exclude:
+          - features: zsh-history
+            baseImage: mcr.microsoft.com/devcontainers/base:ubuntu
+          - features: bash-history
+            baseImage: mcr.microsoft.com/devcontainers/base:ubuntu
     steps:
       - uses: actions/checkout@v3
 

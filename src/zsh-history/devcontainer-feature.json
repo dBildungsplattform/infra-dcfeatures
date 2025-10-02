@@ -1,0 +1,31 @@
+{
+    "name": "zsh-history",
+    "id": "zsh-history",
+    "version": "1.1.0",
+    "description": "zsh history configuration feature",
+    "options": {
+        "ZSH_RCFILE": {
+            "type": "string",
+            "description": "The path of the zshrc file",
+            "default": "/root/.zshrc"
+        },
+        "ZSH_HISTSIZE": {
+            "type": "string",
+            "description": "The value of HISTSIZE and HISTFILESIZE for zsh",
+            "default": "1000000000"
+        },
+        "ZSH_HISTFILE": {
+            "type": "string",
+            "description": "The value of HISTFILE for zsh",
+            "default": "/root/.history/zsh_history"
+        },
+        "ZSH_HISTTIMEFORMAT": {
+            "type": "string",
+            "description": "The value of HISTTIMEFORMAT for zsh",
+            "default": "%F, %T "
+        }
+    },
+    "installsAfter": [
+        "ghcr.io/devcontainers/features/common-utils"
+    ]
+}
