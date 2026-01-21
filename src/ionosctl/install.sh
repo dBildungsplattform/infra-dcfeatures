@@ -1,9 +1,6 @@
 #!/bin/sh
 set -e
 
-echo "Activating feature 'ionosctl'"
-echo "The provided version is: ${VERSION}"
-
 # Clean up
 rm -rf /var/lib/apt/lists/*
 
@@ -29,13 +26,16 @@ ensure_packages() {
 }
 
 export DEBIAN_FRONTEND=noninteractive
-# Retrieve OS info
-. /etc/os-release
 
 # Install dependencies
-ensure_packages apt-transport-https curl ca-certificates jq
+ensure_packages apt-transport-https curl ca-certificates
 
-curl -sL $(curl -s https://api.github.com/repos/ionos-cloud/ionosctl/releases/latest | jq -r '.assets[] | select(.name|match("linux-amd64.tar.gz$")) | .browser_download_url') | tar -xzv &&\
+[ "$VERSION" = "latest" ] && VERSION="$(curl -s https://api.github.com/repos/ionos-cloud/ionosctl/releases/latest | grep -oP '"tag_name": "\K(.*)(?=")')"
+
+echo "Activating feature 'ionosctl'"
+echo "The provided version is: ${VERSION}"
+
+curl -sL https://github.com/ionos-cloud/ionosctl/releases/download/${VERSION}/ionosctl-${VERSION#v}-linux-amd64.tar.gz | tar -xzv &&\
   mv ionosctl /usr/local/bin
 
 chmod +x /usr/local/bin/ionosctl
