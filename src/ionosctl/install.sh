@@ -25,10 +25,8 @@ ensure_packages() {
     fi
 }
 
-export DEBIAN_FRONTEND=noninteractive
-
 # Install dependencies
-ensure_packages apt-transport-https curl ca-certificates
+ensure_packages curl ca-certificates
 
 [ "$VERSION" = "latest" ] && VERSION="$(curl -s https://api.github.com/repos/ionos-cloud/ionosctl/releases/latest | grep -oP '"tag_name": "\K(.*)(?=")')"
 
