@@ -33,7 +33,7 @@ ensure_packages curl ca-certificates
 echo "Activating feature 'ionosctl'"
 echo "The provided version is: ${VERSION}"
 
-curl -sL https://github.com/ionos-cloud/ionosctl/releases/download/${VERSION}/ionosctl-${VERSION#v}-linux-amd64.tar.gz | tar -xzv &&\
+curl -sL https://github.com/ionos-cloud/ionosctl/releases/download/v${VERSION#v}/ionosctl-${VERSION#v}-linux-amd64.tar.gz | tar -xzv &&\
   mv ionosctl /usr/local/bin
 
 chmod +x /usr/local/bin/ionosctl
