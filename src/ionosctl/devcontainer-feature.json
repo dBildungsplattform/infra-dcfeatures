@@ -1,7 +1,7 @@
 {
     "name": "IONOS Cloud Control",
     "id": "ionosctl",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "A feature to install IONOS cloud control 'ionosctl'",
     "options": {
         "version": {
