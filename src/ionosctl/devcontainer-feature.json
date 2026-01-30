@@ -6,12 +6,13 @@
     "options": {
         "version": {
             "type": "string",
-            "enum": [
-                "latest",
-                "none"
-            ],
             "default": "latest",
             "description": "Choose the version."
+        },
+        "sha256": {
+            "type": "string",
+            "default": "",
+            "description": "Optional hash for validation"
         }
     },
     "installsAfter": [
