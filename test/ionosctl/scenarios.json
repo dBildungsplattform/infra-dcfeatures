@@ -1,0 +1,11 @@
+{
+    "ionosctl_version_and_hash": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "ionosctl": {
+                "version": "6.9.6",
+                "sha256": "f48b9349412e1fc73c54cc7e81309b57b50bdacc690a7fc4d94d40973ebe9dbf"
+            }
+        }
+    }
+}
