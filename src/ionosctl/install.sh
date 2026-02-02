@@ -33,7 +33,17 @@ ensure_packages curl ca-certificates
 echo "Activating feature 'ionosctl'"
 echo "The provided version is: ${VERSION}"
 
-curl -sL https://github.com/ionos-cloud/ionosctl/releases/download/v${VERSION#v}/ionosctl-${VERSION#v}-linux-amd64.tar.gz | tar -xzv &&\
-  mv ionosctl /usr/local/bin
+curl -sL https://github.com/ionos-cloud/ionosctl/releases/download/v${VERSION#v}/ionosctl-${VERSION#v}-linux-amd64.tar.gz -o ionosctl.tar.gz
 
+if [ -n "$SHA256" ]; then
+  echo "Verify against provided hash"
+  if echo "$SHA256 ionosctl.tar.gz" | sha256sum --check - ; then
+    echo "Hash matches!"
+  else
+    echo "Hash doesn't match!"
+    exit 1
+  fi
+fi
+
+tar -xzf ionosctl.tar.gz -C /usr/local/bin ionosctl && rm ionosctl.tar.gz
 chmod +x /usr/local/bin/ionosctl

@@ -1,17 +1,18 @@
 {
     "name": "IONOS Cloud Control",
     "id": "ionosctl",
-    "version": "1.0.3",
+    "version": "1.1.0",
     "description": "A feature to install IONOS cloud control 'ionosctl'",
     "options": {
         "version": {
             "type": "string",
-            "enum": [
-                "latest",
-                "none"
-            ],
             "default": "latest",
             "description": "Choose the version."
+        },
+        "sha256": {
+            "type": "string",
+            "default": "",
+            "description": "Optional hash for validation"
         }
     },
     "installsAfter": [
